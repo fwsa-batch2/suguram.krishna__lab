@@ -1,0 +1,202 @@
+suguram@administrator-Latitude-5490:~$ sudo -u root mysql;
+[sudo] password for suguram: 
+Sorry, try again.
+[sudo] password for suguram: 
+Sorry, try again.
+[sudo] password for suguram: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.28-0ubuntu0.20.04.3 (Ubuntu)
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| Pvr_Cinemas        |
+| information_schema |
+| library            |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+6 rows in set (0.01 sec)
+
+mysql> create database Learning;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use Learning;
+Database changed
+mysql> show tables;
+Empty set (0.01 sec)
+
+mysql> create table StudentsDetails(Id int auto_increment, name varchar(20), DOJ date,City varchar(20),Attendance varchar(1) default '-');
+ERROR 1075 (42000): Incorrect table definition; there can be only one auto column and it must be defined as a key
+mysql> create table StudentsDetails(Id int auto_increment primary key, name varchar(20
+), DOJ date,City varchar(20),Attendance varchar(1) default '-');
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> show tables;
++--------------------+
+| Tables_in_Learning |
++--------------------+
+| StudentsDetails    |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> drop tables;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> drop table;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> drop tabe StudentDetails;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'tabe StudentDetails' at line 1
+mysql> drop table StudentDetails;
+ERROR 1051 (42S02): Unknown table 'Learning.StudentDetails'
+mysql> drop table StudentsDetails;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> create table StudentsDetails(Id int auto_increment primary key, name varchar(20 
+    -> ), DOJ date,City varchar(20),Attendance varchar(1) default '-');
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> desc StudentsDetails;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| Id         | int         | NO   | PRI | NULL    | auto_increment |
+| name       | varchar(20) | YES  |     | NULL    |                |
+| DOJ        | date        | YES  |     | NULL    |                |
+| City       | varchar(20) | YES  |     | NULL    |                |
+| Attendance | varchar(1)  | YES  |     | -       |                |
++------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> insert into StudentsDetails values(null,'Ram','9/2/22','Chennai','P');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> SELECT*from StudentsDetails;
++----+------+------------+---------+------------+
+| Id | name | DOJ        | City    | Attendance |
++----+------+------------+---------+------------+
+|  1 | Ram  | 0009-02-22 | Chennai | P          |
++----+------+------------+---------+------------+
+1 row in set (0.00 sec)
+
+mysql> insert into StudentsDetails values(null,'Suguram','2022-09-02','Chennai','P');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT*from StudentsDetails;
++----+---------+------------+---------+------------+
+| Id | name    | DOJ        | City    | Attendance |
++----+---------+------------+---------+------------+
+|  1 | Ram     | 0009-02-22 | Chennai | P          |
+|  2 | Suguram | 2022-09-02 | Chennai | P          |
++----+---------+------------+---------+------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT name from StudentsDetails;
++---------+
+| name    |
++---------+
+| Ram     |
+| Suguram |
++---------+
+2 rows in set (0.01 sec)
+
+mysql> SELECT name,DOJ,Attendance;
+ERROR 1054 (42S22): Unknown column 'name' in 'field list'
+mysql> SELECT name,DOJ,Attendance from StudentsDetails;
++---------+------------+------------+
+| name    | DOJ        | Attendance |
++---------+------------+------------+
+| Ram     | 0009-02-22 | P          |
+| Suguram | 2022-09-02 | P          |
++---------+------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> truncate table StudentsDetails;
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> SELECT*from StudentsDetails;
+Empty set (0.00 sec)
+
+mysql> insert into StudentsDetails values(null,'Ram','9/2/22','Chennai','P');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Query OK, 1 row affected (0.03 sec)
+    -> SELECT * from StudentsDetails;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Query OK, 1 row affected (0.03 sec)
+SELECT * from StudentsDetails' at line 1
+mysql> SELECT * from StudentsDetails;
++----+------+------------+---------+------------+
+| Id | name | DOJ        | City    | Attendance |
++----+------+------------+---------+------------+
+|  1 | Ram  | 0009-02-22 | Chennai | P          |
++----+------+------------+---------+------------+
+1 row in set (0.00 sec)
+
+mysql> insert into StudentsDetails values(null,'Ram','9/2/22','Chennai','P');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Query OK, 1 row affected (0.03 sec)
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Query OK, 1 row affected (0.03 sec)' at line 1
+mysql> SELECT * from StudentsDetails;
++----+------+------------+---------+------------+
+| Id | name | DOJ        | City    | Attendance |
++----+------+------------+---------+------------+
+|  1 | Ram  | 0009-02-22 | Chennai | P          |
+|  2 | Ram  | 0009-02-22 | Chennai | P          |
++----+------+------------+---------+------------+
+2 rows in set (0.00 sec)
+
+mysql> insert into StudentsDetails values(null,'Sugu','2022-01-01','Chennai','P'),(null,'Suguram','2022-01-01','Chennai','P'),(null,'SK','2022-01-01','Chennai','A');
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * from StudentsDetails;
++----+---------+------------+---------+------------+
+| Id | name    | DOJ        | City    | Attendance |
++----+---------+------------+---------+------------+
+|  1 | Ram     | 0009-02-22 | Chennai | P          |
+|  2 | Ram     | 0009-02-22 | Chennai | P          |
+|  3 | Sugu    | 2022-01-01 | Chennai | P          |
+|  4 | Suguram | 2022-01-01 | Chennai | P          |
+|  5 | SK      | 2022-01-01 | Chennai | A          |
++----+---------+------------+---------+------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT*from where DOJ = 2022-01-01;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where DOJ = 2022-01-01' at line 1
+mysql> SELECT*from StudentsDetails where DOJ = 2022-01-01;
+Empty set, 1 warning (0.00 sec)
+
+mysql> SELECT*from StudentsDetails where name=Ram;
+ERROR 1054 (42S22): Unknown column 'Ram' in 'where clause'
+mysql> SELECT*from StudentsDetails where name= 'Ram';
++----+------+------------+---------+------------+
+| Id | name | DOJ        | City    | Attendance |
++----+------+------------+---------+------------+
+|  1 | Ram  | 0009-02-22 | Chennai | P          |
+|  2 | Ram  | 0009-02-22 | Chennai | P          |
++----+------+------------+---------+------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT*from StudentsDetails where DOJ = '2022-01-01';
++----+---------+------------+---------+------------+
+| Id | name    | DOJ        | City    | Attendance |
++----+---------+------------+---------+------------+
+|  3 | Sugu    | 2022-01-01 | Chennai | P          |
+|  4 | Suguram | 2022-01-01 | Chennai | P          |
+|  5 | SK      | 2022-01-01 | Chennai | A          |
++----+---------+------------+---------+------------+
+3 rows in set (0.00 sec)
+
+

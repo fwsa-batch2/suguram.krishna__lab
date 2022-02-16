@@ -1,0 +1,9 @@
+show databses; -> To Show Database
+create databse; -> To Create Database
+drop database databasename; -> To Delete Database
+show tables; -> To show tables inside the Database
+insert into tablename values('if it is a string enter into quotes', 3) -> To insert values
+desc tablename -> TO describe the table's fileds
+SELECT * from tablename -> To show all the values inside the table
+SELECT fieldname from tablename -> To show some exact fields 
+ 

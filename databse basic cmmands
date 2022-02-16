@@ -1,0 +1,121 @@
+suguram@administrator-Latitude-5490:~$ sudo -u root mysql;
+[sudo] password for suguram: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.28-0ubuntu0.20.04.3 (Ubuntu)
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| Learning1          |
+| Pvr_Cinemas        |
+| information_schema |
+| library            |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+7 rows in set (0.01 sec)
+
+mysql> use Learning1;
+Database changed
+mysql> show tables;
+Empty set (0.01 sec)
+
+mysql> use Pvr_Cinemas;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++-----------------------+
+| Tables_in_Pvr_Cinemas |
++-----------------------+
+| Testing               |
+| User_Details          |
++-----------------------+
+2 rows in set (0.00 sec)
+
+mysql> desc Testing;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| Id_no   | int          | YES  |     | NULL    |       |
+| Name    | varchar(30)  | YES  |     | NULL    |       |
+| Address | varchar(100) | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> SELECT*from testing;
+ERROR 1146 (42S02): Table 'Pvr_Cinemas.testing' doesn't exist
+mysql> SELECT*from Testing;
+Empty set (0.00 sec)
+
+mysql> INSERT into Testing values(1,'Suguram','No34/35C');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select*from Testing;
++-------+---------+----------+
+| Id_no | Name    | Address  |
++-------+---------+----------+
+|     1 | Suguram | No34/35C |
++-------+---------+----------+
+1 row in set (0.00 sec)
+
+mysql> alter table Testing modifiy Id_no int(5) auto_increment;
+mysql> alter table Testing modifiy Id_no int(5) auto_increment;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'modifiy Id_no int(5) auto_increment' at line 1
+mysql> alter table Testing modify Id_no int(5) auto_increment;
+ERROR 1075 (42000): Incorrect table definition; there can be only one auto column and it must be defined as a key
+mysql> alter table Testing modify Id_no int(5) auto_increment primary key;
+Query OK, 1 row affected, 1 warning (0.06 sec)
+Records: 1  Duplicates: 0  Warnings: 1
+
+mysql> select * from Testing;
++-------+---------+----------+
+| Id_no | Name    | Address  |
++-------+---------+----------+
+|     1 | Suguram | No34/35C |
++-------+---------+----------+
+1 row in set (0.00 sec)
+
+mysql> desc Testing;
++---------+--------------+------+-----+---------+----------------+
+| Field   | Type         | Null | Key | Default | Extra          |
++---------+--------------+------+-----+---------+----------------+
+| Id_no   | int          | NO   | PRI | NULL    | auto_increment |
+| Name    | varchar(30)  | YES  |     | NULL    |                |
+| Address | varchar(100) | YES  |     | NULL    |                |
++---------+--------------+------+-----+---------+----------------+
+3 rows in set (0.01 sec)
+
+mysql> INSERT into Testing (Name,Address) values ('Sugu','Meera Homes');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT*from Testing;
++-------+---------+-------------+
+| Id_no | Name    | Address     |
++-------+---------+-------------+
+|     1 | Suguram | No34/35C    |
+|     2 | Sugu    | Meera Homes |
++-------+---------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> delet from Testing where id=2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'delet from Testing where id=2' at line 1
+mysql> delete from Testing where id=2;
+ERROR 1054 (42S22): Unknown column 'id' in 'where clause'
+mysql> delete from Testing where Id_no=2;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> 
+
