@@ -1,4 +1,4 @@
-# DBMS-Lab
+# DBMS CHEAT SHEET
 
 ## MySql Basics Comments:
 
@@ -381,3 +381,72 @@ SHOW DATABASES;
 - FOREGIN KEY
 - CHECK
 - DEFAULT
+
+
+### NOT NULL
+
+```
+SHOW DATABASES;
+```
+
+| Database           |
+|:------------------:|
+| JoinPractise       |
+| Learning           |
+| Pvr_Cinemas        |
+| information_schema |
+| library            |
+| mysql              |
+| performance_schema |
+| sys                |
+
+8 rows in set (0.00 sec)
+
+```
+USE Pvr_Cinemas
+```
+Database changed
+
+```
+SHOW TABLES
+```
+
+
+| Tables_in_Pvr_Cinemas |
+|:---------------------:|
+| User_Details          |
+
+1 row in set (0.00 sec)
+
+```
+SELECT*FROM User_Details;
+```
+
+| User_Id | Name    | Email_Id          |
+|:-------:|:-------:|:-----------------:|
+|       1 | Suguram | suguram@gmail.com |
+|       2 | Ram     | ram@gmail.com     |
+|       3 | Sugu    | sugu@gmail.com    |
+
+3 rows in set (0.00 sec)
+
+```
+ALTER TABLE User_Details ADD Phone_Number bigint NOT NULL ;
+```
+
+```
+DESC User_Details;
+```
+
+
+| Field        | Type        | Null | Key | Default | Extra          |
+|:------------:|:-----------:|:----:|:---:|:-------:|:--------------:|
+| User_Id      | int         | NO   | PRI | NULL    | auto_increment |
+| Name         | varchar(20) | NO   | UNI | NULL    |                |
+| Email_Id     | varchar(50) | YES  | UNI | NULL    |                |
+| Phone_Number | bigint      | NO   |     | NULL    |                |
+
+
+4 rows in set (0.00 sec)
+
+---
