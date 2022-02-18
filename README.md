@@ -443,7 +443,7 @@ DESC User_Details;
 |:------------:|:-----------:|:----:|:---:|:-------:|:--------------:|
 | User_Id      | int         | NO   | PRI | NULL    | auto_increment |
 | Name         | varchar(20) | NO   | UNI | NULL    |                |
-| Email_Id     | varchar(50) | YES  | UNI | NULL    |                |
+| Email_Id     | varchar(40) | YES  | UNI | NULL    |                |
 | Phone_Number | bigint      | NO   |     | NULL    |                |
 
 
