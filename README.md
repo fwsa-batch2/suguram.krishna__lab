@@ -1,5 +1,3 @@
-# DBMS CHEAT CODE
-
 # DBMS-Lab
 
 ## MySql Basics Comments:
@@ -21,7 +19,7 @@ SHOW DATABASES;
 
 6 rows in set (0.00 sec)
 
-* * *
+---
 
 ### CREATE DATABASE
 
@@ -45,7 +43,7 @@ SHOW DATABASES;
 
 7 rows in set (0.01 sec)
 
-* * *
+---
 
 ### USE DATABASE
 
@@ -55,7 +53,7 @@ USE Pvr_Cinemas
 
 Database changed
 
-* * *
+---
 
 ### SHOW TABLE
 
@@ -65,7 +63,7 @@ SHOW TABLES
 
 Empty set (0.01 sec)
 
-* * *
+---
 
 ### CREATE TABLE
 
@@ -85,14 +83,16 @@ SHOW TABLES
 
 1 row in set (0.01 sec)
 
-* * *
+---
 
 ### DESCRIBE TABLE
 
 ```
 DESC userdetails
 ```
-OR 
+
+OR
+
 ```
 DESCRIBE userdetail
 ```
@@ -105,7 +105,7 @@ DESCRIBE userdetail
 
 3 rows in set (0.00 sec)
 
-* * *
+---
 
 ### INSERTING VALUES IN TABLE
 
@@ -119,7 +119,7 @@ OR
 INSERT INTO userdetails (Username,Email) values ('SK','abcde@gmail.com'),('Ram', 'abcdef@gmail.com');
 ```
 
-* * *
+---
 
 ### SELECT STATEMENT (TO SHOW THE VALUES INSIDE THE TABLE)
 
@@ -130,7 +130,7 @@ SELECT * FROM userdetails;
 THIS QUERY WILL SELECT ALL THE VALUES IN THE TABLE
 
 | User_Id | Username |      Email       |
-|:-------:|:--------:|:----------------:|
+| :-----: | :------: | :--------------: |
 |    1    | Suguram  |  abc@gmail.com   |
 |    2    |   Sugu   |  abcd@gmail.com  |
 |    3    |    SK    | abcde@gmail.com  |
@@ -138,7 +138,7 @@ THIS QUERY WILL SELECT ALL THE VALUES IN THE TABLE
 
 4 rows in set (0.00 sec)
 
-* * *
+---
 
 ### WHERE CLAUSE (TO SELECT THE VALUES OF THE SELECTED FIELD)
 
@@ -147,12 +147,12 @@ SELECT * FROM userdetails where Email = 'abcd@gmail.com';
 ```
 
 | User_Id | Username |     Email      |
-|:-------:|:--------:|:--------------:|
+| :-----: | :------: | :------------: |
 |    2    |   Sugu   | abcd@gmail.com |
 
 1 row in set (0.00 sec)
 
-* * *
+---
 
 ### ALTER AND MODIFY TABLE
 
@@ -169,7 +169,7 @@ DESC userdetails;
 ```
 
 |    Field     |     Type     | Null | Key | Default |     Extra      |
-|:------------:|:------------:|:----:|:---:|:-------:|:--------------:|
+| :----------: | :----------: | :--: | :-: | :-----: | :------------: |
 |   User_Id    |     int      |  NO  | PRI |  NULL   | auto_increment |
 |   Username   | varchar(20)  |  NO  |     |  NULL   |                |
 |    Email     | varchar(255) |  NO  | UNI |  NULL   |                |
@@ -177,7 +177,7 @@ DESC userdetails;
 
 4 rows in set (0.01 sec)
 
-* * *
+---
 
 #### MODIFIY TABLE
 
@@ -190,7 +190,7 @@ DESC userdetails;
 ```
 
 |    Field     |     Type     | Null | Key | Default |     Extra      |
-|:------------:|:------------:|:----:|:---:|:-------:|:--------------:|
+| :----------: | :----------: | :--: | :-: | :-----: | :------------: |
 |   User_Id    |     int      |  NO  | PRI |  NULL   | auto_increment |
 |   Username   |   char(50)   | YES  |     |  NULL   |                |
 |    Email     | varchar(255) |  NO  | UNI |  NULL   |                |
@@ -202,16 +202,57 @@ DESC userdetails;
 SELECT * FROM userdetails;
 ```
 
-| User_Id | Username | Email                   | Phone_Number |
-|:-------:|:--------:|:-----------------------:|:------------:|
-|    1    | Suguram  | abc@gmail.com           |     NULL     |
-|    2    | Sugu     | abcd@gmediumintmail.com |     NULL     |
-|    3    | SK       | abcde@gmail.com         |     NULL     |
-|    4    | Ram      | abcdef@gmail.com        |     NULL     |
+| User_Id | Username |          Email          | Phone_Number |
+| :-----: | :------: | :---------------------: | :----------: |
+|    1    | Suguram  |      abc@gmail.com      |     NULL     |
+|    2    |   Sugu   | abcd@gmediumintmail.com |     NULL     |
+|    3    |    SK    |     abcde@gmail.com     |     NULL     |
+|    4    |   Ram    |    abcdef@gmail.com     |     NULL     |
 
 4 rows in set (0.00 sec)
 
-* * *
+---
+
+### ADDING AUTO_INCREMENT TO EXISTING COLUMN
+
+```
+ALTER TABLE userdetails ADD Secondary_Id int;
+```
+
+Query OK, 0 rows affected (0.04 sec)
+
+```
+DESC userdetails;
+```
+
+|    Field     |     Type     | Null | Key | Default |     Extra      |
+| :----------: | :----------: | :--: | :-: | :-----: | :------------: |
+|   User_Id    |     int      |  NO  | PRI |  NULL   | auto_increment |
+|   Username   |   char(50)   | YES  |     |  NULL   |                |
+|    Email     | varchar(255) |  NO  | UNI |  NULL   |                |
+| Phone_Number |    bigint    | YES  |     |  NULL   |                |
+| Secondary_Id |     int      | YES  |     |  NULL   |                |
+
+
+```
+ALTER TABLE Userdetails MODIFY Secondary_Id int AUTO_INCREMENT;
+```
+
+Query OK, 0 rows affected (0.04 sec)
+
+```
+DESC userdetails;
+```
+
+|    Field     |     Type     | Null | Key | Default |     Extra      |
+| :----------: | :----------: | :--: | :-: | :-----: | :------------: |
+|   User_Id    |     int      |  NO  | PRI |  NULL   | auto_increment |
+|   Username   |   char(50)   | YES  |     |  NULL   |                |
+|    Email     | varchar(255) |  NO  | UNI |  NULL   |                |
+| Phone_Number |    bigint    | YES  |     |  NULL   |                |
+| Secondary_Id |     int      | YES  |     |  NULL   |                |
+
+---
 
 ### UPDATE TABLE
 
@@ -221,22 +262,22 @@ UPDATE userdetails SET Phone_Number = 987654321 where User_Id=1;
 
 Query OK, 1 row affected (0.01 sec)
 
-Rows matched: 1  Changed: 1  Warnings: 0
+Rows matched: 1 Changed: 1 Warnings: 0
 
 ```
 SELECT * FROM userdetails;
 ```
 
-| User_Id | Username | Email            | Phone_Number |
-|:-------:|:--------:|:----------------:|:------------:|
-|       1 | Suguram  | abc@gmail.com    |    987654321 |
-|       2 | Sugu     | abcd@gmail.com   |         NULL |
-|       3 | SK       | abcde@gmail.com  |         NULL |
-|       4 | Ram      | abcdef@gmail.com |         NULL |
+| User_Id | Username |      Email       | Phone_Number |
+| :-----: | :------: | :--------------: | :----------: |
+|    1    | Suguram  |  abc@gmail.com   |  987654321   |
+|    2    |   Sugu   |  abcd@gmail.com  |     NULL     |
+|    3    |    SK    | abcde@gmail.com  |     NULL     |
+|    4    |   Ram    | abcdef@gmail.com |     NULL     |
 
 4 rows in set (0.01 sec)
 
-* * *
+---
 
 ### DELETE TABLE
 
@@ -250,18 +291,17 @@ Query OK, 1 row affected (0.01 sec)
 SELECT * FROM userdetails;
 ```
 
-
-| User_Id | Username | Email            | Phone_Number |
-|:-------:|:--------:|:----------------:|:------------:|
-|       1 | Suguram  | abc@gmail.com    |    987654321 |
-|       2 | Sugu     | abcd@gmail.com   |         NULL |
-|       4 | Ram      | abcdef@gmail.com |         NULL |
+| User_Id | Username |      Email       | Phone_Number |
+| :-----: | :------: | :--------------: | :----------: |
+|    1    | Suguram  |  abc@gmail.com   |  987654321   |
+|    2    |   Sugu   |  abcd@gmail.com  |     NULL     |
+|    4    |   Ram    | abcdef@gmail.com |     NULL     |
 
 3 rows in set (0.00 sec)
 
-* * *
+---
 
-### TRUNCATE TABLE 
+### TRUNCATE TABLE
 
 ##### DELETES ALL THE VALUES INSIDE THE TABLE BUT WONT DELETE THE FIELDS WE CREATED
 
@@ -281,16 +321,16 @@ Empty set (0.00 sec)
 DESC userdetails;
 ```
 
-| Field        | Type         | Null | Key | Default | Extra          |
-|:------------:|:------------:|:----:|:---:|:-------:|:--------------:|
-| User_Id      | int          | NO   | PRI | NULL    | auto_increment |
-| Username     | char(50)     | YES  |     | NULL    |                |
-| Email        | varchar(255) | NO   | UNI | NULL    |                |
-| Phone_Number | bigint       | YES  |     | NULL    |                |
+|    Field     |     Type     | Null | Key | Default |     Extra      |
+| :----------: | :----------: | :--: | :-: | :-----: | :------------: |
+|   User_Id    |     int      |  NO  | PRI |  NULL   | auto_increment |
+|   Username   |   char(50)   | YES  |     |  NULL   |                |
+|    Email     | varchar(255) |  NO  | UNI |  NULL   |                |
+| Phone_Number |    bigint    | YES  |     |  NULL   |                |
 
 4 rows in set (0.00 sec)
 
-* * *
+---
 
 ### DROP TABLE AND DATABASE
 
@@ -318,27 +358,26 @@ Query OK, 0 rows affected (0.01 sec)
 SHOW DATABASES;
 ```
 
-
-| Database           |
-|:------------------:|
-| Learning           |
+|      Database      |
+| :----------------: |
+|      Learning      |
 | information_schema |
-| library            |
-| mysql              |
+|      library       |
+|       mysql        |
 | performance_schema |
-| sys                |
+|        sys         |
 
 6 rows in set (0.01 sec)
 
-* * *
+---
 
 #### CONSTRAINTS
 
 ##### MOSTLY USED CONSTRAINTS
 
-* NOT NULL 
-* UNIQUE
-* PRIMARY KEY
-* FOREGIN KEY
-* CHECK 
-* DEFAULT
+- NOT NULL
+- UNIQUE
+- PRIMARY KEY
+- FOREGIN KEY
+- CHECK
+- DEFAULT
