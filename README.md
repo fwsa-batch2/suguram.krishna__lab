@@ -450,3 +450,44 @@ DESC User_Details;
 4 rows in set (0.00 sec)
 
 ---
+
+
+### UNIQUE
+
+```
+ALTER TABLE User_Details DROP COLUMN Phone_Number
+```
+
+```
+DESC User_Details;
+```
+
+| Field        | Type        | Null | Key | Default | Extra          |
+|:------------:|:-----------:|:----:|:---:|:-------:|:--------------:|
+| User_Id      | int         | NO   | PRI | NULL    | auto_increment |
+| Name         | varchar(20) | NO   | UNI | NULL    |                |
+| Email_Id     | varchar(50) | YES  | UNI | NULL    |                |
+
+4 rows in set (0.00 sec)
+
+ADDING THE UNIQUE KEY
+```
+ALTER TABLE User_Details ADD Phone_Number bigint UNIQUE;
+```
+
+Query OK, 0 rows affected (0.16 sec)
+
+```
+DESC User_Details;
+```
+
+| Field        | Type         | Null | Key | Default | Extra          |
+|:------------:|:------------:|:----:|:---:|:-------:|:--------------:|
+| User_Id      | int          | NO   | PRI | NULL    | auto_increment |
+| Name         | varchar(20)  | NO   | UNI | NULL    |                |
+| Email_Id     | varchar(50)  | YES  | UNI | NULL    |                |
+| User_Address | varchar(255) | YES  | UNI | NULL    |                |
+| Phone_Number | bigint       | YES  | UNI | NULL    |                |
+
+5 rows in set (0.00 sec)
+
