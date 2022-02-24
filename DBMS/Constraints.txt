@@ -117,3 +117,32 @@ DESC User_Details;
 5 rows in set (0.00 sec)
 
 PRIMARY KEY
+
+
+ALTER TABLE User_Details DROP COLUMN User_Id;
+
+ DESC User_Details;
+
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| Name         | varchar(20)  | NO   | UNI | NULL    |                |
+| Email_Id     | varchar(50)  | YES  | UNI | NULL    |                |
+| User_Address | varchar(255) | YES  | UNI | NULL    |                |
+| Phone_Number | bigint       | YES  | UNI | NULL    |                |
++--------------+--------------+------+-----+---------+----------------+
+
+
+ALTER TABLE User_Details ADD (User_id int AUTO_INCREMENT NOT NULL PRIMARY KEY);
+
+DESC User_Details;
+
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| Name         | varchar(20)  | NO   | UNI | NULL    |                |
+| Email_Id     | varchar(50)  | YES  | UNI | NULL    |                |
+| User_Address | varchar(255) | YES  | UNI | NULL    |                |
+| Phone_Number | bigint       | YES  | UNI | NULL    |                |
+| User_id      | int          | NO   | PRI | NULL    | auto_increment |
++--------------+--------------+------+-----+---------+----------------+
