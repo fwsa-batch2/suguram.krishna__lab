@@ -5,7 +5,7 @@ MOSTLY USED CONSTRAINTS
 - NOT NULL
 - UNIQUE
 - PRIMARY KEY
-- FOREGIN KEY
+- FOREIGN KEY
 - CHECK
 - DEFAULT
 
@@ -146,3 +146,103 @@ DESC User_Details;
 | Phone_Number | bigint       | YES  | UNI | NULL    |                |
 | User_id      | int          | NO   | PRI | NULL    | auto_increment |
 +--------------+--------------+------+-----+---------+----------------+
+
+
+FOREIGN KEY
+
+CREATE TABLE Movie_Details (Movie_Id int NOT NULL PRIMARY KEY AUTO_INCREMENT, Movie_Name varchar(255) NOT NULL UNIQUE, Hero_Name varchar(255) NOT NULL, Director_Name varchar(255));
+
+DESC Movie_Details;
+
++---------------+--------------+------+-----+---------+----------------+
+| Field         | Type         | Null | Key | Default | Extra          |
++---------------+--------------+------+-----+---------+----------------+
+| Movie_Id      | int          | NO   | PRI | NULL    | auto_increment |
+| Movie_Name    | varchar(255) | NO   | UNI | NULL    |                |
+| Hero_Name     | varchar(255) | NO   |     | NULL    |                |
+| Director_Name | varchar(255) | YES  |     | NULL    |                |
++---------------+--------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+CREATE TABLE Booking_Details (User_id int FOREIGN KEY(User_id) REFERENCES User_Details(User_id) , Movie_Id varchar(255) FOREIGN KEY(Movie_Id) REFERENCES Movie_Details(Movie_Id)) , Show_Timing varchar(5) NOT NULL, Ticket_Count int(2));
+
+DESC Booking_Details;
+
++--------------+------------+------+-----+---------+-------+
+| Field        | Type       | Null | Key | Default | Extra |
++--------------+------------+------+-----+---------+-------+
+| User_id      | int        | NO   | MUL | NULL    |       |
+| Movie_Id     | int        | NO   | MUL | NULL    |       |
+| Show_Timing  | varchar(5) | NO   |     | NULL    |       |
+| Ticket_Count | int        | NO   |     | NULL    |       |
++--------------+------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+
+INSERT INTO Movie_Details(Movie_Name, Hero_Name, Director_Name) VALUES ("Beast","Vijay","Nelson"),("DON","SivaKarthikeyan","Cibi");
+
+SELECT*FROM Movie_Details;
++----------+------------+-----------------+---------------+
+| Movie_Id | Movie_Name | Hero_Name       | Director_Name |
++----------+------------+-----------------+---------------+
+|        1 | Beast      | Vijay           | Nelson        |
+|        2 | Don        | SivaKarthikeyan | Cibi          |
+|        3 | ET         | Surya           | Pandiraj      |
++----------+------------+-----------------+---------------+
+3 rows in set (0.00 sec)
+
+
+INSERT INTO Booking_Details(User_id,Movie_Id,Show_Timing, Ticket_Count) VALUES (1,2,"6:20",5),(2,1,"12:30", 5);
+
+Query OK, 2 rows affected (0.02 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+
+
+SELECT*FROM Booking_Details;
++---------+----------+-------------+--------------+
+| User_id | Movie_Id | Show_Timing | Ticket_Count |
++---------+----------+-------------+--------------+
+|       1 |        2 | 6:20        |            5 |
+|       2 |        1 | 12:30       |            5 |
++---------+----------+-------------+--------------+
+2 rows in set (0.00 sec)
+
+
+CHECK
+
+ALTER TABLE Booking_Details ADD CONSTRAINT CHK_Booking_Details CHECK (Ticket_Count >= 1);
+
+Query OK, 2 rows affected (0.14 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+INSERT INTO Booking_Details(User_id,Movie_Id,Show_Timing, Ticket_Count) VALUES
+(3,2,"6:20",0);
+
+ERROR 3819 (HY000): Check constraint 'CHK_Booking_Details' is violated.
+
+INSERT INTO Booking_Details(User_id,Movie_Id,Show_Timing, Ticket_Count) VALUES
+(3,2,"6:20",2);
+
+Query OK, 1 row affected (0.01 sec)
+
+
+DEFAULT 
+
+ALTER TABLE Booking_Details ALTER Ticket_Count SET DEFAULT '1';
+
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+DESC Booking_Details;
+
++--------------+------------+------+-----+---------+-------+
+| Field        | Type       | Null | Key | Default | Extra |
++--------------+------------+------+-----+---------+-------+
+| User_id      | int        | NO   | MUL | NULL    |       |
+| Movie_Id     | int        | NO   | MUL | NULL    |       |
+| Show_Timing  | varchar(5) | NO   |     | NULL    |       |
+| Ticket_Count | int        | NO   |     | 1       |       |
++--------------+------------+------+-----+---------+-------+
+
+4 rows in set (0.00 sec)
