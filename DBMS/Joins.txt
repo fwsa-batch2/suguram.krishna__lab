@@ -9,9 +9,9 @@ TYPES OF JOINS
 
 -> OUTER
 
--> LEFT
+   * LEFT
 
--> RIGHT
+   * RIGHT
 
 -> CROSS JOIN
 
@@ -49,3 +49,134 @@ SELECT*FROM Batch1 INNER JOIN Batch2 WHERE Batch1.Emo_Id= Batch2.Emo_Id;
 |      5 | Sulai   | M      |      5 | Keerthana   | F      |
 +--------+---------+--------+--------+-------------+--------+
 5 rows in set (0.01 sec)
+
+LEFT JOIN
+
+SELECT*FROM Batch1 LEFT OUTER JOIN Batch2 ON Batch1.DOB= Batch2.DOB;
+
++--------+---------+--------+------+--------+----------+--------+------+
+| Emo_Id | Name    | Gender | DOB  | Emo_Id | Name     | Gender | DOB  |
++--------+---------+--------+------+--------+----------+--------+------+
+|      1 | Yusuf   | M      | 1999 |   NULL | NULL     | NULL   | NULL |
+|      2 | Dhaya   | M      | 2000 |     13 | Prasanna | M      | 2000 |
+|      3 | Revathi | F      | 1999 |   NULL | NULL     | NULL   | NULL |
+|      4 | Ananya  | F      | 2000 |     13 | Prasanna | M      | 2000 |
+|      5 | Sulai   | M      | 2000 |     13 | Prasanna | M      | 2000 |
++--------+---------+--------+------+--------+----------+--------+------+
+
+5 rows in set (0.00 sec)
+
+
+RIGHT JOIN
+
+SELECT*FROM Batch1 RIGHT OUTER JOIN Batch2 ON Batch1.Emo_Id = Batch2.Emo_Id;
+
+
++--------+---------+--------+--------+-------------+--------+
+| Emo_Id | Name    | Gender | Emo_Id | Name        | Gender |
++--------+---------+--------+--------+-------------+--------+
+|      1 | Yusuf   | M      |      1 | Suguram     | M      |
+|      2 | Dhaya   | M      |      2 | Venkat      | M      |
+|      3 | Revathi | F      |      3 | Jerusheya   | F      |
+|      4 | Ananya  | F      |      4 | Annapoorani | F      |
+|      5 | Sulai   | M      |      5 | Keerthana   | F      |
+|   NULL | NULL    | NULL   |      6 | Vaishnavi_P | F      |
+|   NULL | NULL    | NULL   |      7 | Sangeetha   | F      |
+|   NULL | NULL    | NULL   |      8 | Saranya     | F      |
+|   NULL | NULL    | NULL   |      9 | Deepak      | M      |
+|   NULL | NULL    | NULL   |     10 | Musaraf     | M      |
+|   NULL | NULL    | NULL   |     11 | Kasi        | M      |
+|   NULL | NULL    | NULL   |     12 | Chituraj    | M      |
+|   NULL | NULL    | NULL   |     13 | Prasanna    | M      |
+|   NULL | NULL    | NULL   |     14 | Pavan       | M      |
++--------+---------+--------+--------+-------------+--------+
+
+
+14 rows in set (0.00 sec)
+
+
+CROSS JOIN
+
+SELECT*FROM Batch1 CROSS JOIN Batch2;
+
++--------+---------+--------+------+--------+-------------+--------+------+
+| Emo_Id | Name    | Gender | DOB  | Emo_Id | Name        | Gender | DOB  |
++--------+---------+--------+------+--------+-------------+--------+------+
+|      5 | Sulai   | M      | 2000 |      1 | Suguram     | M      | 2002 |
+|      4 | Ananya  | F      | 2000 |      1 | Suguram     | M      | 2002 |
+|      3 | Revathi | F      | 1999 |      1 | Suguram     | M      | 2002 |
+|      2 | Dhaya   | M      | 2000 |      1 | Suguram     | M      | 2002 |
+|      1 | Yusuf   | M      | 1999 |      1 | Suguram     | M      | 2002 |
+|      5 | Sulai   | M      | 2000 |      2 | Venkat      | M      | 2004 |
+|      4 | Ananya  | F      | 2000 |      2 | Venkat      | M      | 2004 |
+|      3 | Revathi | F      | 1999 |      2 | Venkat      | M      | 2004 |
+|      2 | Dhaya   | M      | 2000 |      2 | Venkat      | M      | 2004 |
+|      1 | Yusuf   | M      | 1999 |      2 | Venkat      | M      | 2004 |
+|      5 | Sulai   | M      | 2000 |      3 | Jerusheya   | F      | 2002 |
+|      4 | Ananya  | F      | 2000 |      3 | Jerusheya   | F      | 2002 |
+|      3 | Revathi | F      | 1999 |      3 | Jerusheya   | F      | 2002 |
+|      2 | Dhaya   | M      | 2000 |      3 | Jerusheya   | F      | 2002 |
+|      1 | Yusuf   | M      | 1999 |      3 | Jerusheya   | F      | 2002 |
+|      5 | Sulai   | M      | 2000 |      4 | Annapoorani | F      | 2004 |
+|      4 | Ananya  | F      | 2000 |      4 | Annapoorani | F      | 2004 |
+|      3 | Revathi | F      | 1999 |      4 | Annapoorani | F      | 2004 |
+|      2 | Dhaya   | M      | 2000 |      4 | Annapoorani | F      | 2004 |
+|      1 | Yusuf   | M      | 1999 |      4 | Annapoorani | F      | 2004 |
+|      5 | Sulai   | M      | 2000 |      5 | Keerthana   | F      | 2001 |
+|      4 | Ananya  | F      | 2000 |      5 | Keerthana   | F      | 2001 |
+|      3 | Revathi | F      | 1999 |      5 | Keerthana   | F      | 2001 |
+|      2 | Dhaya   | M      | 2000 |      5 | Keerthana   | F      | 2001 |
+|      1 | Yusuf   | M      | 1999 |      5 | Keerthana   | F      | 2001 |
+|      5 | Sulai   | M      | 2000 |      6 | Vaishnavi_P | F      | 2003 |
+|      4 | Ananya  | F      | 2000 |      6 | Vaishnavi_P | F      | 2003 |
+|      3 | Revathi | F      | 1999 |      6 | Vaishnavi_P | F      | 2003 |
+|      2 | Dhaya   | M      | 2000 |      6 | Vaishnavi_P | F      | 2003 |
+|      1 | Yusuf   | M      | 1999 |      6 | Vaishnavi_P | F      | 2003 |
+|      5 | Sulai   | M      | 2000 |      7 | Sangeetha   | F      | 2004 |
+|      4 | Ananya  | F      | 2000 |      7 | Sangeetha   | F      | 2004 |
+|      3 | Revathi | F      | 1999 |      7 | Sangeetha   | F      | 2004 |
+|      2 | Dhaya   | M      | 2000 |      7 | Sangeetha   | F      | 2004 |
+|      1 | Yusuf   | M      | 1999 |      7 | Sangeetha   | F      | 2004 |
+|      5 | Sulai   | M      | 2000 |      8 | Saranya     | F      | 2004 |
+|      4 | Ananya  | F      | 2000 |      8 | Saranya     | F      | 2004 |
+|      3 | Revathi | F      | 1999 |      8 | Saranya     | F      | 2004 |
+|      2 | Dhaya   | M      | 2000 |      8 | Saranya     | F      | 2004 |
+|      1 | Yusuf   | M      | 1999 |      8 | Saranya     | F      | 2004 |
+|      5 | Sulai   | M      | 2000 |      9 | Deepak      | M      | 2002 |
+|      4 | Ananya  | F      | 2000 |      9 | Deepak      | M      | 2002 |
+|      3 | Revathi | F      | 1999 |      9 | Deepak      | M      | 2002 |
+|      2 | Dhaya   | M      | 2000 |      9 | Deepak      | M      | 2002 |
+|      1 | Yusuf   | M      | 1999 |      9 | Deepak      | M      | 2002 |
+|      5 | Sulai   | M      | 2000 |     10 | Musaraf     | M      | 2001 |
+|      4 | Ananya  | F      | 2000 |     10 | Musaraf     | M      | 2001 |
+|      3 | Revathi | F      | 1999 |     10 | Musaraf     | M      | 2001 |
+|      2 | Dhaya   | M      | 2000 |     10 | Musaraf     | M      | 2001 |
+|      1 | Yusuf   | M      | 1999 |     10 | Musaraf     | M      | 2001 |
+|      5 | Sulai   | M      | 2000 |     11 | Kasi        | M      | 2004 |
+|      4 | Ananya  | F      | 2000 |     11 | Kasi        | M      | 2004 |
+|      3 | Revathi | F      | 1999 |     11 | Kasi        | M      | 2004 |
+|      2 | Dhaya   | M      | 2000 |     11 | Kasi        | M      | 2004 |
+|      1 | Yusuf   | M      | 1999 |     11 | Kasi        | M      | 2004 |
+|      5 | Sulai   | M      | 2000 |     12 | Chituraj    | M      | 2004 |
+|      4 | Ananya  | F      | 2000 |     12 | Chituraj    | M      | 2004 |
+|      3 | Revathi | F      | 1999 |     12 | Chituraj    | M      | 2004 |
+|      2 | Dhaya   | M      | 2000 |     12 | Chituraj    | M      | 2004 |
+|      1 | Yusuf   | M      | 1999 |     12 | Chituraj    | M      | 2004 |
+|      5 | Sulai   | M      | 2000 |     13 | Prasanna    | M      | 2000 |
+|      4 | Ananya  | F      | 2000 |     13 | Prasanna    | M      | 2000 |
+|      3 | Revathi | F      | 1999 |     13 | Prasanna    | M      | 2000 |
+|      2 | Dhaya   | M      | 2000 |     13 | Prasanna    | M      | 2000 |
+|      1 | Yusuf   | M      | 1999 |     13 | Prasanna    | M      | 2000 |
+|      5 | Sulai   | M      | 2000 |     14 | Pavan       | M      | 2003 |
+|      4 | Ananya  | F      | 2000 |     14 | Pavan       | M      | 2003 |
+|      3 | Revathi | F      | 1999 |     14 | Pavan       | M      | 2003 |
+|      2 | Dhaya   | M      | 2000 |     14 | Pavan       | M      | 2003 |
+|      1 | Yusuf   | M      | 1999 |     14 | Pavan       | M      | 2003 |
+|      5 | Sulai   | M      | 2000 |     15 | Riyas       | M      | 2003 |
+|      4 | Ananya  | F      | 2000 |     15 | Riyas       | M      | 2003 |
+|      3 | Revathi | F      | 1999 |     15 | Riyas       | M      | 2003 |
+|      2 | Dhaya   | M      | 2000 |     15 | Riyas       | M      | 2003 |
+|      1 | Yusuf   | M      | 1999 |     15 | Riyas       | M      | 2003 |
++--------+---------+--------+------+--------+-------------+--------+------+
+
+75 rows in set (0.00 sec)
