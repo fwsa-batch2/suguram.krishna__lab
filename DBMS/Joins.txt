@@ -1,0 +1,51 @@
+JOINS
+
+SQL Join is used to fetch data from two or more tables, which is joined to appear as single set of data. It is used for combining column two or more tables by using values common to both tables.
+
+
+TYPES OF JOINS
+
+-> INNER
+
+-> OUTER
+
+-> LEFT
+
+-> RIGHT
+
+-> CROSS JOIN
+
+
+INNER JOIN
+
+CREATE TABLE Batch1(Emo_Id int AUTO_INCREMENT NOT NULL PRIMARY KEY, Name varchar(30) UNIQUE NOT NULL, Gender varchar(1) NOT NULL DEFAULT "M");
+
+Query OK, 0 rows affected (0.05 sec)
+
+CREATE TABLE Batch2(Emo_Id int AUTO_INCREMENT NOT NULL PRIMARY KEY, Namevarchar(30) UNIQUE NOT NULL, Gender varchar(1) NOT NULL DEFAULT "M");
+
+Query OK, 0 rows affected (0.04 sec)
+
+INSERT INTO Batch1(Name,Gender) VALUES ("Yusuf","M"),("Dhaya","M"),("Revathi","F"),("Ananya","F"),("Sulai","M");
+
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+INSERT INTO Batch2(Name,Gender) VALUES ("Suguram","M"),("Venkat","M"),("Jerusheya","F"),("Annapoorani","F"),("Keerthana","F"),("Vaishnavi_P","F"),("Sangeetha","F"),("Saranya","F"),("Deepak","M"),("Musaraf","M"),("Kasi","M"),("Chituraj","M"),("Prasanna","M"),("Pavan","M");
+
+Query OK, 14 rows affected (0.02 sec)
+Records: 14  Duplicates: 0  Warnings: 0
+
+SELECT*FROM Batch1 INNER JOIN Batch2 WHERE Batch1.Emo_Id= Batch2.Emo_Id;
+
+
++--------+---------+--------+--------+-------------+--------+
+| Emo_Id | Name    | Gender | Emo_Id | Name        | Gender |
++--------+---------+--------+--------+-------------+--------+
+|      1 | Yusuf   | M      |      1 | Suguram     | M      |
+|      2 | Dhaya   | M      |      2 | Venkat      | M      |
+|      3 | Revathi | F      |      3 | Jerusheya   | F      |
+|      4 | Ananya  | F      |      4 | Annapoorani | F      |
+|      5 | Sulai   | M      |      5 | Keerthana   | F      |
++--------+---------+--------+--------+-------------+--------+
+5 rows in set (0.01 sec)
