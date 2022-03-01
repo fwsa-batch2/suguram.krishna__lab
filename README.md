@@ -77,3 +77,18 @@ INSERT INTO students (name,email,mobile_no,password,gender,dob) VALUES ("Suguram
 Query OK, 4 row affected (0.01 sec)
 
 Records: 4  Duplicates: 0  Warnings: 0
+
+
+### FEATURE 2: LISTING STUDENTS
+
+SELECT * FROM students;
+
+
+| id | name     | email              | mobile_no  | password     | gender | dob        | created_date        |
+|:--:|:--------:|:------------------:|:----------:|:------------:|:------:|:----------:|:-------------------:|
+|  1 | Suguram  | suguram@gmail.com  | 9876543211 | sugu_123     | M      | 2002-04-10 | 2022-03-01 17:29:55 |
+|  3 | Ram      | ram@gmail.com      | 9876543212 | ram_123      | M      | 2002-04-10 | 2022-03-01 17:39:21 |
+|  4 | Sugu     | sugu@gmail.com     | 9876543213 | sugu_123     | M      | 2002-05-10 | 2022-03-01 18:07:38 |
+|  5 | Sugurama | sugurama@gmail.com | 9876543214 | sugurama_123 | M      | 2002-06-10 | 2022-03-01 18:07:38 |
+
+4 rows in set (0.01 sec)
