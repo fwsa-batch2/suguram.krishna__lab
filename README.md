@@ -40,7 +40,7 @@ DESC students
 
 
 | Field        | Type         | Null | Key | Default           | Extra             |
-|:--------------------------------------------------------------------------------:|
+|:------------:|:------------:|:----:|:---:|:-----------------:|:-----------------:|
 | id           | int          | NO   | PRI | NULL              | auto_increment    |
 | name         | varchar(100) | NO   |     | NULL              |                   |
 | email        | varchar(100) | NO   | UNI | NULL              |                   |
@@ -60,7 +60,7 @@ DESC student_class
 
 
 | Field      | Type        | Null | Key | Default | Extra          |
-|:----------------------------------------------------------------:|
+|:----------:|:-----------:|:----:|:---:|:-------:|:--------------:|
 | id         | int         | NO   | PRI | NULL    | auto_increment |
 | student_id | int         | NO   | MUL | NULL    |                |
 | class      | int         | NO   |     | NULL    |                |
