@@ -114,7 +114,7 @@ SELECT*FROM students WHERE (name="Suguram");
 1 row in set (0.01 sec)
 
 
-### ENROLLING STUDENT INTO CLASS:
+### FEATURE 5: ENROLLING STUDENT INTO CLASS:
 ```
 INSERT INTO student_class (student_id,class,status) VALUES (1,5,"ACTIVE"),(2,5,"ACTIVE"),(3,5,"ACTIVE"),(4,6,"ACTIVE");
 ```
@@ -137,7 +137,7 @@ SELECT*FROM student_class;
 4 rows in set (0.00 sec)
 
 
-### FINDING STUDENTS FROM CLASS 5
+### FEATURE 6: FINDING STUDENTS FROM CLASS 5
 ```
 SELECT*FROM student_class WHERE (class=5);
 ```
@@ -151,7 +151,7 @@ SELECT*FROM student_class WHERE (class=5);
 3 rows in set (0.00 sec)
 
 
-### UPDATING CLASS 5 TO CLASS 6
+### FEATURE 7: UPDATING CLASS 5 TO CLASS 6
 ```
 UPDATE student_class SET class ="6" WHERE class ="5";
 ```
@@ -171,7 +171,7 @@ SELECT*FROM student_class;
 
 4 rows in set (0.00 sec)
 
-### WITHDRAWING THE STUDENT
+### FEATURE 8: WITHDRAWING THE STUDENT
 ```
 DELETE FROM student_class where id=4;
 ```
@@ -187,7 +187,7 @@ SELECT*FROM student_class;
 |  2 |          2 |     6 | ACTIVE |
 |  3 |          3 |     6 | ACTIVE |
 
-### GETTING STUDENTS WHO DIDN'T UPDATE THE DOB :
+### FEATURE 9: GETTING STUDENTS WHO DIDN'T UPDATE THE DOB :
 ```
 SELECT*FROM students WHERE dob=NULL;
 ```
@@ -195,7 +195,7 @@ SELECT*FROM students WHERE dob=NULL;
 Empty set (0.00 sec)
 
 
-### STUDENTS WHO ARE ACTIVE:
+### FEATURE 10: STUDENTS WHO ARE ACTIVE:
 ```
 SELECT COUNT(*) FROM student_class WHERE status="ACTIVE";
 ```
@@ -207,7 +207,7 @@ SELECT COUNT(*) FROM student_class WHERE status="ACTIVE";
 1 row in set (0.01 sec)
 
 
-### STUDENTS WHO ARE ACTIVE BY CLASS;
+### FEATURE 11: STUDENTS WHO ARE ACTIVE BY CLASS;
 ```
 SELECT COUNT(*)FROM student_class WHERE status = "ACTIVE" GROUP BY class;
 ```
@@ -218,14 +218,57 @@ SELECT COUNT(*)FROM student_class WHERE status = "ACTIVE" GROUP BY class;
 
 1 row in set (0.00 sec)
 
-### TOTAL NUMBER OF STUDENTS ACTIVELY LEARNING LESS THAN 5 STUDENTS IN EACH CLASS:
+### FEATURE 12: TOTAL NUMBER OF STUDENTS ACTIVELY LEARNING LESS THAN 5 STUDENTS IN EACH CLASS:
 ```
 SELECT COUNT(*),class FROM student_class WHERE status = "ACTIVE" GROUP BY class having count(*)<5;
 ```
 
 | COUNT(*) | class |
-|:----------------:|
+|:--------:|------:|
 |        3 |     6 |
 
+1 row in set (0.00 sec)
+
+
+### FEATURE 13: DISPLAYING THE STUDENT AND CLASS USING INNER JOIN
+
+SELECT * FROM students INNER JOIN student_class on students.id = student_class.id;
+
+| id | name    | email             | mobile_no  | password | gender | dob        | created_date        | id | student_id | class | status |
+|:--:|:-------:|:-----------------:|:----------:|:--------:|:------:|:----------:|:-------------------:|:--:|:----------:|:-----:|:------:|
+|  1 | Suguram | suguram@gmail.com | 9876543211 | sugu_12  | M      | 2002-04-10 | 2022-03-01 17:29:55 |  1 |          1 |     6 | ACTIVE |
+|  2 | Ram     | ram@gmail.com     | 9876543212 | ram_123  | M      | 2002-04-10 | 2022-03-01 17:39:21 |  2 |          2 |     6 | ACTIVE |
+|  3 | Sugu    | sugu@gmail.com    | 9876543213 | sugu_123 | M      | 2002-05-10 | 2022-03-01 18:07:38 |  3 |          3 |     6 | ACTIVE |
+
+3 rows in set (0.00 sec)
+
+
+### FEATURE 14: DISPLAYING THE GIVEN INPUT USING JOINS 
+```
+SELECT * FROM students INNER JOIN student_class on students.id = student_class.id WHERE student_class.class=6;
+```
+
+| id | name    | email             | mobile_no  | password | gender | dob        | created_date        | id | student_id | class | status |
+|:--:|:-------:|:-----------------:|:----------:|:--------:|:------:|:----------:|:-------------------:|:--:|:----------:|:-----:|:------:|
+|  1 | Suguram | suguram@gmail.com | 9876543211 | sugu_12  | M      | 2002-04-10 | 2022-03-01 17:29:55 |  1 |          1 |     6 | ACTIVE |
+|  2 | Ram     | ram@gmail.com     | 9876543212 | ram_123  | M      | 2002-04-10 | 2022-03-01 17:39:21 |  2 |          2 |     6 | ACTIVE |
+|  3 | Sugu    | sugu@gmail.com    | 9876543213 | sugu_123 | M      | 2002-05-10 | 2022-03-01 18:07:38 |  3 |          3 |     6 | ACTIVE |
+
+3 rows in set (0.01 sec)
+
+
+### FEATURE 15: FINDING THE GIVEN MAIL ID USING THE JOIN:
+```
+SELECT class FROM student_class INNER JOIN students on students.id= student_class.id WHERE students.email = "suguram@gmail.com";
+```
+
+| class |
+|:-----:|
+|     6 |
 
 1 row in set (0.00 sec)
+
+
+
+
+

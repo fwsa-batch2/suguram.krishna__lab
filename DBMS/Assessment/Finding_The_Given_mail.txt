@@ -1,0 +1,14 @@
+FINDING THE GIVEN MAIL ID USING THE JOIN:
+
+SELECT class FROM student_class INNER JOIN students on students.id= student_class.id WHERE students.email = "n@gmail.com";
+Empty set (0.00 sec)
+
+
+SELECT class FROM student_class INNER JOIN students on students.id= student_class.id WHERE students.email = "suguram@gmail.com";
+
+| class |
++-------+
+|     6 |
++-------+
+
+1 row in set (0.00 sec)
