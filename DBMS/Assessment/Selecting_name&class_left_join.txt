@@ -1,0 +1,14 @@
+SELECTING NAME AND CLASS WITH LEFT JOIN:
+
+SELECT name,class FROM students LEFT JOIN student_class ON students.id = student_class.student_id;
++----------+-------+
+| name     | class |
++----------+-------+
+| Suguram  |     6 |
+| Ram      |     6 |
+| Sugu     |     6 |
+| Sugurama |  NULL |
+| Sugumar  |  NULL |
+| Karkuvel |  NULL |
++----------+-------+
+6 rows in set (0.00 sec)

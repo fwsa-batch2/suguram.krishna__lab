@@ -4,11 +4,13 @@ SELECT class FROM student_class INNER JOIN students on students.id= student_clas
 Empty set (0.00 sec)
 
 
-SELECT class FROM student_class INNER JOIN students on students.id= student_class.id WHERE students.email = "suguram@gmail.com";
+SELECT student_id,name,email,class FROM student_class INNER JOIN students on students.id= student_class.id WHERE students.email = "suguram@gmail.com";
 
-| class |
-+-------+
-|     6 |
-+-------+
++------------+---------+-------------------+-------+
+| student_id | name    | email             | class |
++------------+---------+-------------------+-------+
+|          1 | Suguram | suguram@gmail.com |     6 |
++------------+---------+-------------------+-------+
 
-1 row in set (0.00 sec)
+
+1 row in set (0.01 sec)
