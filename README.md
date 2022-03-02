@@ -213,7 +213,7 @@ Empty set (0.00 sec)
 SELECT COUNT(*) FROM student_class WHERE status="ACTIVE";
 ```
 
-| COUNT(\*) |
+| COUNT(*) |
 | :-------: |
 |     3     |
 
@@ -225,7 +225,7 @@ SELECT COUNT(*) FROM student_class WHERE status="ACTIVE";
 SELECT COUNT(*)FROM student_class WHERE status = "ACTIVE" GROUP BY class;
 ```
 
-| COUNT(\*) |
+| COUNT(*) |
 | :-------: |
 |     3     |
 
@@ -237,7 +237,7 @@ SELECT COUNT(*)FROM student_class WHERE status = "ACTIVE" GROUP BY class;
 SELECT COUNT(*),class FROM student_class WHERE status = "ACTIVE" GROUP BY class having count(*)<5;
 ```
 
-| COUNT(\*) | class |
+| COUNT(*) | class |
 | :-------: | ----: |
 |     3     |     6 |
 
@@ -245,7 +245,7 @@ SELECT COUNT(*),class FROM student_class WHERE status = "ACTIVE" GROUP BY class 
 
 ### FEATURE 13: DISPLAYING THE STUDENT AND CLASS USING INNER JOIN
 
-SELECT \* FROM students INNER JOIN student_class on students.id = student_class.id;
+SELECT * FROM students INNER JOIN student_class on students.id = student_class.id;
 
 | id  |  name   |       email       | mobile_no  | password | gender |    dob     |    created_date     | id  | student_id | class | status |
 | :-: | :-----: | :---------------: | :--------: | :------: | :----: | :--------: | :-----------------: | :-: | :--------: | :---: | :----: |

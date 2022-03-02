@@ -1,3 +1,5 @@
+FEATURE 5: 
+
 ENROLLING STUDENT INTO CLASS:
 
 INSERT INTO student_class (student_id,class,status) VALUES (1,5,"ACTIVE"),(2,5,"ACTIVE"),(3,5,"ACTIVE"),(4,6,"ACTIVE");

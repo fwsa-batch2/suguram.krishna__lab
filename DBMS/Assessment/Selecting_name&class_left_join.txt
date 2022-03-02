@@ -1,3 +1,5 @@
+FEATURE 17:
+
 SELECTING NAME AND CLASS WITH LEFT JOIN:
 
 SELECT name,class FROM students LEFT JOIN student_class ON students.id = student_class.student_id;

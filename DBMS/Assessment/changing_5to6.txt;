@@ -1,4 +1,6 @@
-UPDATING CLASS 5 TO CLASS 6:
+FEATURE 7: 
+
+UPDATING CLASS 5 TO CLASS 6
 
 UPDATE student_class SET class ="6" WHERE class ="5";
 Query OK, 3 rows affected (0.00 sec)

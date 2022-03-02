@@ -1,3 +1,5 @@
+FEATURE 14:
+
 DISPLAYING THE GIVEN INPUT USING JOINS 
 
 SELECT * FROM students INNER JOIN student_class on students.id = student_class.id WHERE student_class.class=6;

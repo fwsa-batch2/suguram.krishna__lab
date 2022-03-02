@@ -1,3 +1,5 @@
+FEATURE 3: 
+
 LOOGING IN WITH THE EMAIL AND PASSWORD:
 
 SELECT * FROM students WHERE (email="suguram@gmail.com" and password="sugu_123");

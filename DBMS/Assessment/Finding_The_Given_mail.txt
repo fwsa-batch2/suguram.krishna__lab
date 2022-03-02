@@ -1,3 +1,5 @@
+FEATURE 15
+
 FINDING THE GIVEN MAIL ID USING THE JOIN:
 
 SELECT class FROM student_class INNER JOIN students on students.id= student_class.id WHERE students.email = "n@gmail.com";

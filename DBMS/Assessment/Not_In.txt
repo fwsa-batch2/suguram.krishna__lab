@@ -1,3 +1,5 @@
+FEATURE 16:
+
 STUDENTS WHO ARE NOT ENROLLED IN THE CLASS:
 
 SELECT * FROM students WHERE id NOT IN (SELECT student_id FROM student_class); 
