@@ -1,0 +1,12 @@
+FINDING STUDENTS FROM CLASS 5
+
+
+SELECT*FROM student_class WHERE (class=5);
++----+------------+-------+--------+
+| id | student_id | class | status |
++----+------------+-------+--------+
+|  1 |          1 |     5 | ACTIVE |
+|  2 |          2 |     5 | ACTIVE |
+|  3 |          3 |     5 | ACTIVE |
++----+------------+-------+--------+
+3 rows in set (0.00 sec)

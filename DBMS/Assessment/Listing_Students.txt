@@ -1,3 +1,5 @@
+LISTING THE STUDENTS;
+
 USE Assessment;
 
 Database changed
