@@ -202,7 +202,7 @@ SELECT*FROM student_class;
 ### FEATURE 9: GETTING STUDENTS WHO DIDN'T UPDATE THE DOB :
 
 ```
-SELECT*FROM students WHERE dob=NULL;
+SELECT*FROM students WHERE dob is NULL;
 ```
 
 Empty set (0.00 sec)
