@@ -1,4 +1,18 @@
+CREATING DATABASE
+
+```
 SHOW DATABASES;
+```
+
+| Database           |
+|:------------------:|
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| world              |
+
+
 USE pvr_cinema;
 SHOW TABLES;
 CREATE TABLE booking (booking_id int NOT NULL PRIMARY KEY AUTO_INCREMENT, user_id INT NOT NULL, movie_id int NOT NULL, price int NOT NULL, booking_date date NOT NULL, FOREIGN KEY (user_id) REFERENCES users(user_id), FOREIGN KEY (movie_id) REFERENCES movies(movie_id)); 
