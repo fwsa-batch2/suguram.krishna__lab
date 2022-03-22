@@ -226,5 +226,11 @@ SELECT*FROM payment
 ![payment table_values](https://user-images.githubusercontent.com/88901530/159544628-b896a1dc-0509-4e6b-896e-179a9ad29867.png)
 
 
+***
+***
+***
+
+### ERR DIAGRAM
+![ERR_Diagram](https://user-images.githubusercontent.com/88901530/159547324-b3fb2731-22cb-4096-ab26-f0400104a9e1.png)
 
 
