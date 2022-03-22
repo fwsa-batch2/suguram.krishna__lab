@@ -1,4 +1,4 @@
-CREATING DATABASE
+##### CREATING DATABASE
 
 ```
 SHOW DATABASES;
@@ -12,21 +12,77 @@ SHOW DATABASES;
 | sys                |
 | world              |
 
+```
+CREATE DATABASE pvr_cinema;
+```
 
-USE pvr_cinema;
-SHOW TABLES;
+```
+USE pvr_Cinema;
+```
+
+#### CREATING THE USER TABLE 
+
+```
+CREATE TABLE USERS (user_id int NOT NULL UNIQUE PRIMARY KEY AUTO_INCREMENT, email_id varchar(255) NOT NULL UNIQUE, name varchar(255) NOT NULL, password varchar(255) NOT NULL)
+```
+
+##### CREATING ADMIN TYPE TABLE
+
+```
+CREATE TABLE admin_types(type_id int NOT NULL PRIMARY KEY, type_of_admin varchar(255) NOT NULL);
+```
+
+##### CREATING ADMIN TABLE 
+
+```
+CREATE TABLE admins (user_id int NOT NULL PRIMARY KEY, type_id int NOT NULL, FOREIGN KEY(type_id) REFERENCES admin_types(type_id);
+```
+
+##### CREATING MOVIE TABLE
+
+```
+CREATE TABLE movie (movie_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,admin_id int NOT NULL UNIQUE, movie_name varchar(255) NOT NULL UNIQUE, hero_name varchar(255) NOT NULL, movie_language varchar(255) NOT NULL, cbfc_rating varchar(255) NOT NULL, image_url blob NOT NULL, FOREIGN KEY(admin_id)) REFERENCES admins(user_id);
+```
+
+##### CREATING TYPE NAME TABLE
+
+```
+CREATE TABLE type_name(type_id int NOT NULL UNIQUE PRIMARY KEY AUTO_INCREMENT, type_nme varchar(255) NOT NULL);
+```
+
+##### CREATING MOVIE TYPE TABLE
+
+```
+CREATE TABLE movie_type (movie_id int NOT NULL, type_id int NOT NULL, FOREIGN KEY (movie_id) REFERENCES movies(movie_id), FOREIGN KEY (type_id) REFERENCES type_name(type_id));
+```
+
+##### CREATING BOOKING TABLE
+
+```
 CREATE TABLE booking (booking_id int NOT NULL PRIMARY KEY AUTO_INCREMENT, user_id INT NOT NULL, movie_id int NOT NULL, price int NOT NULL, booking_date date NOT NULL, FOREIGN KEY (user_id) REFERENCES users(user_id), FOREIGN KEY (movie_id) REFERENCES movies(movie_id)); 
-DESC movie_type;
+```
+
+##### CREATING PAYMENT TABLE
+
+```
+CREATE TABLE payment (payment_id int NOT NULL UNIQUE PRIMARY KEY AUTO_INCREMENT, booking_id int NOT NULL, user_id int NOT NULL, card_number bigint NOT NULL UNIQUE, card_expiry_date date NOT NULL, FOREIGN KEY(booking_id) REFERENCES booking(booking_id), FOREIGN KEY (user_id) REFERENCES users(user_id));
+```
+
+
+#### DESCRIBING THE TABLES
+
+```
+DESC users;
+```
+
+DESC admin_types;
+DESC admins;
 DESC movies;
+DESC type_name;
+DESC movie_type;
 DESC booking;
 DESC payment;
-DESC users;
-DESC admins;
-DESC type_name;
-DESC admin_types;
-DROP TABLE movie_type;
-CREATE TABLE movie_type (movie_id int NOT NULL, type_id int NOT NULL, FOREIGN KEY (movie_id) REFERENCES movies(movie_id), FOREIGN KEY (type_id) REFERENCES type_name(type_id));
-CREATE TABLE payment (payment_id int NOT NULL UNIQUE PRIMARY KEY AUTO_INCREMENT, booking_id int NOT NULL, user_id int NOT NULL, card_number bigint NOT NULL UNIQUE, card_expiry_date date NOT NULL, FOREIGN KEY(booking_id) REFERENCES booking(booking_id));  
+ 
 INSERT INTO users(email_id, name, password) VALUES ("suguram@gmail.com", "suguram", "Sugu@123"), ("admin@gmail.com", "admin", "admin");
 INSERT INTO admin_types values (2, "MANAGER");
 INSERT INTO admins VALUES (2,2);
