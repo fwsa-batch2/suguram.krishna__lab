@@ -218,7 +218,7 @@ SELECT*FROM payment
 
 
 ***
-### ERR DIAGRAM
+### EER DIAGRAM
 ![ERR_Diagram](https://user-images.githubusercontent.com/88901530/159547324-b3fb2731-22cb-4096-ab26-f0400104a9e1.png)
 
 
