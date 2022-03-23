@@ -48,7 +48,7 @@ SELECT * FROM users;
 ![users_table](https://user-images.githubusercontent.com/88901530/159664518-0f22c499-ea4a-45d2-91ce-d95b478812d2.png)
 
 *** 
-##### CREATING ADMIN TYPE TABLE
+##### CREATING INSERTING AND SELECTING ADMIN TYPE TABLE
 
 ```
 CREATE TABLE admin_types(type_id int NOT NULL PRIMARY KEY, type_of_admin varchar(255) NOT NULL);
@@ -71,7 +71,7 @@ SELECT * FROM admin_types;
 ![admin_type_value](https://user-images.githubusercontent.com/88901530/159665572-891d95eb-c37a-4ee0-90ca-57f48195cce1.png)
 
 *** 
-##### CREATING ADMIN TABLE 
+##### CREATING INSERTING AND SELECTING ADMIN TABLE 
 
 ```
 CREATE TABLE admins (user_id int NOT NULL PRIMARY KEY, type_id int NOT NULL, FOREIGN KEY(type_id) REFERENCES admin_types(type_id);
@@ -96,7 +96,7 @@ SELECT*FROM admins;
 
 
 *** 
-##### CREATING MOVIE TABLE
+##### CREATING INSERTING AND SELECTING MOVIE TABLE
 
 ```
 CREATE TABLE movie (movie_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,admin_id int NOT NULL UNIQUE, movie_name varchar(255) NOT NULL UNIQUE, hero_name varchar(255) NOT NULL, movie_language varchar(255) NOT NULL, cbfc_rating varchar(255) NOT NULL, image_url blob NOT NULL, FOREIGN KEY(admin_id)) REFERENCES admins(user_id);
@@ -120,7 +120,7 @@ SELECT*FROM movies;
  ![movies_table](https://user-images.githubusercontent.com/88901530/159534708-6be008df-c9a3-4548-ae81-1395a62bca83.png)
 
 *** 
-##### CREATING TYPE NAME TABLE
+##### CREATING INSERTING AND SELECTING TYPE NAME TABLE
 
 ```
 CREATE TABLE type_name(type_id int NOT NULL UNIQUE PRIMARY KEY AUTO_INCREMENT, type_nme varchar(255) NOT NULL);
@@ -145,7 +145,7 @@ SELECT*FROM type_name
 
 
 *** 
-##### CREATING MOVIE TYPE TABLE
+##### CREATING INSERTING AND SELECTING MOVIE TYPE TABLE
 
 ```
 CREATE TABLE movie_type (movie_id int NOT NULL, type_id int NOT NULL, FOREIGN KEY (movie_id) REFERENCES movies(movie_id), FOREIGN KEY (type_id) REFERENCES type_name(type_id));
@@ -169,7 +169,7 @@ SELECT*FROM movie_type
 ![movie_type_value](https://user-images.githubusercontent.com/88901530/159540543-707cccab-b306-4855-aab9-56f28e936f70.png)
 
 *** 
-##### CREATING BOOKING TABLE
+##### CREATING INSERTING AND SELECTING BOOKING TABLE
 
 ```
 CREATE TABLE booking (booking_id int NOT NULL PRIMARY KEY AUTO_INCREMENT, user_id INT NOT NULL, movie_id int NOT NULL, price int NOT NULL, booking_date date NOT NULL, FOREIGN KEY (user_id) REFERENCES users(user_id), FOREIGN KEY (movie_id) REFERENCES movies(movie_id)); 
@@ -195,7 +195,7 @@ SELECT*FROM booking
 
 
 *** 
-##### CREATING PAYMENT TABLE
+##### CREATING INSERTING AND SELECTING PAYMENT TABLE
 
 ```
 CREATE TABLE payment (payment_id int NOT NULL UNIQUE PRIMARY KEY AUTO_INCREMENT, booking_id int NOT NULL, user_id int NOT NULL, card_number bigint NOT NULL UNIQUE, card_expiry_date date NOT NULL, FOREIGN KEY(booking_id) REFERENCES booking(booking_id), FOREIGN KEY (user_id) REFERENCES users(user_id));
@@ -216,32 +216,12 @@ SELECT*FROM payment
 ```
 ![payment table_values](https://user-images.githubusercontent.com/88901530/159544628-b896a1dc-0509-4e6b-896e-179a9ad29867.png)
 
-***
 
-
-***
 ***
 ### ERR DIAGRAM
 ![ERR_Diagram](https://user-images.githubusercontent.com/88901530/159547324-b3fb2731-22cb-4096-ab26-f0400104a9e1.png)
 
 
-***
-***
-### ER DIAGRAM
-![Flowchart (2)](https://user-images.githubusercontent.com/88901530/159657745-54a7fcec-44d5-4431-9da3-7cdb83b16c3a.png)
-
-
-
-
-
-
-***
-***
-### ERR DIAGRAM
-![ERR_Diagram](https://user-images.githubusercontent.com/88901530/159547324-b3fb2731-22cb-4096-ab26-f0400104a9e1.png)
-
-
-***
 ***
 ### ER DIAGRAM
 ![Flowchart (2)](https://user-images.githubusercontent.com/88901530/159657745-54a7fcec-44d5-4431-9da3-7cdb83b16c3a.png)
