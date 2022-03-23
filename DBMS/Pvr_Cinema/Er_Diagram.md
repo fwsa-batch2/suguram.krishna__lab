@@ -222,7 +222,18 @@ SELECT*FROM payment
 ```
 SHOW TABLES
 ```
-![Show tables](https://user-images.githubusercontent.com/88901530/159690186-bb5665b8-2d98-4b01-bb19-6f4a33df8203.png)
+
+| Tables_in_pvr_cinema |
+|:--------------------:|
+| admin_types          |
+| admins               |
+| booking              |
+| movie_type           |
+| movies               |
+| payment              |
+| type_name            |
+| users                |
+
 
 ***
 ### EER DIAGRAM
