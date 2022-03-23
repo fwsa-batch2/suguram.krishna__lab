@@ -216,6 +216,13 @@ SELECT*FROM payment
 ```
 ![payment table_values](https://user-images.githubusercontent.com/88901530/159544628-b896a1dc-0509-4e6b-896e-179a9ad29867.png)
 
+***
+##### SHOWING TABLES
+
+```
+SHOW TABLES
+```
+![Show tables](https://user-images.githubusercontent.com/88901530/159690186-bb5665b8-2d98-4b01-bb19-6f4a33df8203.png)
 
 ***
 ### EER DIAGRAM
