@@ -21,7 +21,26 @@ CREATE DATABASE pvr_cinema;
 ```
 USE pvr_Cinema;
 ```
-*** 
+***
+
+##### SHOWING TABLES
+
+```
+SHOW TABLES
+```
+
+| Tables_in_pvr_cinema |
+|:--------------------:|
+| admin_types          |
+| admins               |
+| booking              |
+| movie_type           |
+| movies               |
+| payment              |
+| type_name            |
+| users                |
+
+***
 
 #### CREATING INSERTING AND SELECTING THE USER TABLE 
 
@@ -217,23 +236,6 @@ SELECT*FROM payment
 ![payment table_values](https://user-images.githubusercontent.com/88901530/159544628-b896a1dc-0509-4e6b-896e-179a9ad29867.png)
 
 ***
-##### SHOWING TABLES
-
-```
-SHOW TABLES
-```
-
-| Tables_in_pvr_cinema |
-|:--------------------:|
-| admin_types          |
-| admins               |
-| booking              |
-| movie_type           |
-| movies               |
-| payment              |
-| type_name            |
-| users                |
-
 
 ***
 ### EER DIAGRAM
