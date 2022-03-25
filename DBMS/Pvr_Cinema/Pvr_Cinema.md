@@ -244,7 +244,8 @@ SELECT*FROM payment
 
 ***
 ### ER DIAGRAM
-![Flowchart (2)](https://user-images.githubusercontent.com/88901530/159657745-54a7fcec-44d5-4431-9da3-7cdb83b16c3a.png)
+![Flowchart (1)](https://user-images.githubusercontent.com/88901530/160033060-36a345eb-6e2d-457f-aefa-f905392aad8f.jpg)
+
 
 
 
