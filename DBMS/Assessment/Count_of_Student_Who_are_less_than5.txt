@@ -1,0 +1,13 @@
+FEATURE 12:
+
+TOTAL NUMBER OF STUDENTS ACTIVELY LEARNING LESS THAN 5 STUDENTS IN EACH CLASS:
+
+SELECT COUNT(*),class FROM student_class WHERE status = "ACTIVE" GROUP BY class having count(*)<5;
+
++----------+-------+
+| COUNT(*) | class |
++----------+-------+
+|        3 |     6 |
++----------+-------+
+
+1 row in set (0.00 sec)
