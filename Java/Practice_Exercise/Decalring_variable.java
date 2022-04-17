@@ -1,3 +1,5 @@
+package Practice_Exercise;
+
 public class Decalring_variable {
     public static void main(String[] args){
         String name = "Suguram";
