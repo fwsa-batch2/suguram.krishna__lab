@@ -1,4 +1,3 @@
-package Practice_Exercise;
 
 public class Multiple_variables{
     public static void main (String[] args){

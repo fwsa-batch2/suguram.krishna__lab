@@ -1,14 +1,17 @@
-package Practice_Exercise;
+import java.util.Scanner;
 
 public class factorial {
     public static void main (String[] args)
     {
-    int num = 5;
-    int factorial = 1;
-    for(int i = 1; i <= num; ++i)
+    System.out.println("Enter A Number");
+    Scanner scan = new Scanner(System.in);
+    int num = scan.nextInt();
+    long factorial = 1;
+    for(long i = 1; i <= num; i++)
     {
         factorial = factorial * i;
     }
+    scan.close();
     System.out.println("Factorial of the given number is "+factorial);;
 }
 }
