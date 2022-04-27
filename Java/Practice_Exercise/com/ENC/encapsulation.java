@@ -39,4 +39,3 @@ public class encapsulation {
         System.out.println(obj.getMailId() + " " + obj.getName() + " " + obj.getPassword());
     }
 }
-
