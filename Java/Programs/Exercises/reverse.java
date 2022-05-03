@@ -9,11 +9,7 @@ public class reverse {
         int num = scan.nextInt();
         int reverse = 0;
         int remainder;
-        while(num != 0){
-            remainder = num%10;
-            reverse = reverse*10 + remainder;
-            num = num/10; 
-        }
+        while(num != 0)=
         scan.close();
         System.out.println("The Reverese of the Number is " +reverse);
     }

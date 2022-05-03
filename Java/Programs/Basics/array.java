@@ -1,5 +1,10 @@
 public class array {
     public static void main(String[] args) {
+
+        // int[] anarray; decalring the variable
+        // anarray = new int[10]; allocating the storage 
+
+        
         int sizeOfArray = 5;
         String[] language = new String[sizeOfArray];
         language[0] = "tamil";
