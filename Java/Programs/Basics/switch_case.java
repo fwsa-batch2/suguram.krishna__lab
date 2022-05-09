@@ -4,6 +4,7 @@ public class switch_case {
     	switch (caseIndex) {
         	case 0:
             	System.out.println("Zero");
+				// break;
         	case 1:
             	System.out.println("One");
             	break;
