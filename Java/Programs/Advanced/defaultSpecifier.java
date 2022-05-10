@@ -1,6 +1,3 @@
-package com.ENC;
-
-
 class defaultSpecifier {
     private int defaultCheck;
     private String passwordCheck;

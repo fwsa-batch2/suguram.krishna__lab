@@ -1,5 +1,3 @@
-package com.ENC;
-
 class Calc {
     public int add(int firstNum,int secondNum){
         return firstNum+secondNum;

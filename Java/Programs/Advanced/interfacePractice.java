@@ -1,9 +1,6 @@
-package com.ENC;
-
-
 interface Practice{
     void show();
-}
+
 
 class PracticeImpl implements Practice{
     public void show(){
@@ -16,4 +13,5 @@ public class interfacePractice {
         Practice obj = new PracticeImpl();
         obj.show();
     }
+}
 }

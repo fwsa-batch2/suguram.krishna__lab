@@ -1,5 +1,3 @@
-package com.ENC;
-
 public class overloadingPractice {
     public static void main(String[] args) {
         Calc obj = new Calc();
@@ -25,4 +23,3 @@ class Calc{
     }
 
 }
-

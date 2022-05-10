@@ -1,5 +1,3 @@
-package com.ENC;
-
 import java.util.*;
 
 public class hash_table {

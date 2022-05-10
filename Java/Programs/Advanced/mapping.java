@@ -1,5 +1,3 @@
-package com.ENC;
-
 import java.util.*;
 
 public class mapping {
@@ -43,4 +41,3 @@ public class mapping {
         System.out.println("Entries: " + numbers.entrySet());
     }
 }
-

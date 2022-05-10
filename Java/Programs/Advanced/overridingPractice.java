@@ -1,5 +1,3 @@
-package com.ENC;
-
 class parentClass{
 
     //Static Method Overriding 

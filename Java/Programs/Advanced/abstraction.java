@@ -1,5 +1,3 @@
-package com.ENC;
-
 public class abstraction{
     public static void main(String[] args) {
         manager obj = new rolesAndLevels();
