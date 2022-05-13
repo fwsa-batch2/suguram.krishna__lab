@@ -1,17 +1,5 @@
 package com.Enc;
 
-
-public class encapsulation {
-    public static void main (String [] args){
-        Userdetails obj = new Userdetails();
-        obj.setName("Suguram");
-        obj.setMailId("sk@gmail.com");
-        obj.setPassword("123");
-        System.out.println(obj.getMailId() + " " + obj.getName() + " " + obj.getPassword());
-    }
-}
-
-
 class Userdetails{
     String mailId;
     String name;
@@ -39,5 +27,15 @@ class Userdetails{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+}
+
+public class encapsulation {
+    public static void main (String [] args){
+        Userdetails obj = new Userdetails();
+        obj.setName("Suguram");
+        obj.setMailId("sk@gmail.com");
+        obj.setPassword("123");
+        System.out.println(obj.getMailId() + " " + obj.getName() + " " + obj.getPassword());
     }
 }

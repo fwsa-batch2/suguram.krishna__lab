@@ -17,5 +17,18 @@ public class hash_table {
   
         // Print mappings to the console
         System.out.println("HashTable Mapping" +hashtable);
+
+        // HashSet jeru=new HashSet();
+
+        // jeru.add(12);
+        // jeru.add("jeru");
+        // jeru.add(true);
+
+        // System.out.println(jeru);
+
+        // Object[] one=jeru.toArray();
+
+        // System.out.println(one);
+
     }
 }

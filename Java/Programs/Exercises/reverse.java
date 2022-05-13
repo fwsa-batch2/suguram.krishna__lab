@@ -1,4 +1,4 @@
-
+package Programs.Exercises;
 
 import java.util.Scanner;
 
@@ -9,7 +9,7 @@ public class reverse {
         int num = scan.nextInt();
         int reverse = 0;
         int remainder;
-        while(num != 0)=
+        while(num != 0);
         scan.close();
         System.out.println("The Reverese of the Number is " +reverse);
     }

@@ -3,13 +3,13 @@ import java.util.*;
 public class mapping {
     public static void main(String[] args) {
         // Creating a map using the HashMap
-        HashMap<String,String> numbers = new HashMap<>();
+        HashMap<Integer,String> numbers = new HashMap<>();
     
         // Insert elements to the map
-        numbers.put("One", "Ram");
-        numbers.put("Two", "SK");
-        numbers.put("Three", "Sugu");
-        numbers.put("Four", "Suguram");
+        numbers.put(-1, "Ram");
+        numbers.put(-2, "SK");
+        numbers.put(-3, "Sugu");
+        numbers.put(-4, "Suguram");
         // numbers.put(null,"Ram");
         numbers.put(null,null); //Both key and value can be null
     
@@ -36,7 +36,7 @@ public class mapping {
         //Both the key and value together is know as entries
     
         // Remove Elements from the map
-        String value = numbers.remove("Four");
+        String value = numbers.remove(1);
         System.out.println("Removed Value: " + value);
         System.out.println("Entries: " + numbers.entrySet());
     }

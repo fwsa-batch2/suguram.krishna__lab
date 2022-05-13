@@ -1,3 +1,5 @@
+package Programs.Exercises;
+
 import java.util.Scanner;
 public class perfectNumber {
     public static void main(String args[]){

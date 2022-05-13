@@ -1,3 +1,5 @@
+package Casting;
+
 public class castingInt {
     public static void main(String args[]){
         int price = 10;

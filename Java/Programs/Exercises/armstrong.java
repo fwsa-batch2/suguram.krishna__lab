@@ -1,9 +1,5 @@
-
-
-
+package Programs.Exercises;
 import java.util.Scanner;
-
-
 public class armstrong {
     public static void main(String[] args){
         Scanner scan=new Scanner(System.in);

@@ -1,3 +1,5 @@
+package Programs.Exercises;
+
 public class arraySorting {
     public static void main(String args[]){
         int number [] = {8,45,12,4,80,90};
