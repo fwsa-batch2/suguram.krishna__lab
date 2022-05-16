@@ -8,7 +8,7 @@ public class reverse {
         Scanner scan = new Scanner(System.in);
         int num = scan.nextInt();
         int reverse = 0;
-        int remainder;
+        // int remainder;
         while(num != 0);
         scan.close();
         System.out.println("The Reverese of the Number is " +reverse);
