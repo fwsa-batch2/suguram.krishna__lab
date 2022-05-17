@@ -13,7 +13,7 @@ public class hash_table {
         hashtable.put(3, "ram");
         hashtable.put(4, "sk");
         hashtable.put(5, "sk");
-        hashtable.put(null, "sk");
+        // hashtable.put(null, "sk");
   
         // Print mappings to the console
         System.out.println("HashTable Mapping" +hashtable);

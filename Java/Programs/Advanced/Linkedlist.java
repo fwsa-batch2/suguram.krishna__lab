@@ -19,9 +19,8 @@ public class Linkedlist {
          System.out.println("After Poll" +ll);
          ll.offer(404);
          System.out.println("After offer" +ll);
-         LinkedList<Integer> ll2 = (LinkedList)ll.clone();
-         System.out.println("cloned object" +ll2);
-         
+        //  LinkedList<Integer> ll2 = (LinkedList)ll.clone();
+        //  System.out.println("cloned object" +ll2);
     }
 }
 
