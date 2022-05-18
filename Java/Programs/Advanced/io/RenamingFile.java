@@ -9,5 +9,6 @@ public class RenamingFile {
         File newName = new File("C:\\SuguramIO\\SubFolder1\\SubFolder2\\SubFolder3\\suguram.txt");
         boolean renamingStatus = file.renameTo(newName);
         System.out.println("Renaming Result : " + renamingStatus);
+        System.out.println("File Name : " +file.getName());
     }
 }

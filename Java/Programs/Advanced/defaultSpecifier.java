@@ -1,14 +1,14 @@
-class defaultSpecifier {
+class DefaultSpecifier {
     private int defaultCheck;
     private String passwordCheck;
     
-    public defaultSpecifier(){
+    public DefaultSpecifier(){
         defaultCheck = 12;
         passwordCheck = "Sk123@gmail.com";
     }
 
     public static void main(String[] args) {
-        defaultSpecifier check = new defaultSpecifier();
+        DefaultSpecifier check = new DefaultSpecifier();
         System.out.println(check.defaultCheck);
         System.out.println(check.passwordCheck);
     }

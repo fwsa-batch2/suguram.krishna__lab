@@ -8,7 +8,7 @@ class PracticeImpl implements Practice{
     }
 }
 
-public class interfacePractice {
+public class InterfacePractice {
     public static void main(String[] args) {
         Practice obj = new PracticeImpl();
         obj.show();

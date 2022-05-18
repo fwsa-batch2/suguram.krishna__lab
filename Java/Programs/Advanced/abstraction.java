@@ -1,4 +1,4 @@
-public class abstraction{
+public class Abstraction{
     public static void main(String[] args) {
         manager obj = new rolesAndLevels();
         obj.prjName();
