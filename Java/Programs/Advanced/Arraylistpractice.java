@@ -50,6 +50,7 @@ public class Arraylistpractice {
         System.out.println("al3 after inserting the al2" +al3);
 
         List al4 = al3.subList(0, 5);
+        
         System.out.println(al4);
     }
 }
