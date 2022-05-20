@@ -13,7 +13,6 @@ public class DeletingtxtFile {
                 String extension = fileName.substring((lastDot + 1));
                 if (extension.equals("txt"))
                   f.delete();
-                   
             }
         }
 

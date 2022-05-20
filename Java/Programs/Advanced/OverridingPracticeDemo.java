@@ -7,7 +7,7 @@ class parentClass{
     // }
 
 
-    public void testing(){
+    public  void testing(){
         System.out.println("Hello! This is Parent Class");
     }
 
@@ -23,8 +23,15 @@ class childClass extends parentClass{
     // }
 
     @Override
-    public void testing(){
+    public  void testing(){
+        super.testing();
         System.out.println("Hello! This is Child Class");
+    }
+    public static void main(String[] args) {
+        childClass obj = new childClass();
+        obj.testing();
+        
+        
     }
 
 }
@@ -42,6 +49,7 @@ public class OverridingPracticeDemo {
     public static void main(String[] args) {
         childClass obj = new childClass();
         obj.testing();
+        
     }
 
 }
