@@ -10,6 +10,6 @@ public class ThreadUsingImplmentaion implements Runnable{
     @Override
     public void run() {
         // TODO Auto-generated method stub
-        System.out.println("Jerusheya and Swetha are best friendsd");
+        System.out.println("This is Thread done by Implementation");
     }
 }
