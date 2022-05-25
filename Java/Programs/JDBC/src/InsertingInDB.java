@@ -1,4 +1,3 @@
-package Programs.JDBC.src;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -24,7 +23,7 @@ public class InsertingInDB {
         statement.executeUpdate(sql);
         // System.out.println(rows);
         // if(rows>0){
-            System.out.println("Row has been Inserted");
+            System.out.println("Row has been Insert~ed");
         // }
 
         statement.close();
