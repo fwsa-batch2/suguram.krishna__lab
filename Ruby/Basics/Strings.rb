@@ -12,3 +12,4 @@ puts str2.strip()
 puts str2.include? "Ruby"
 puts str[0..2]
 puts str.index("llo")
+
