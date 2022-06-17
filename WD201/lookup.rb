@@ -20,9 +20,9 @@ def parse_dns(dns_raw)
   
   dns_records = {Record: array1, Domain_Name: array2, Ip_Address: array3}
   for i in (dns_raw.select{|x| x[0] != "#" && x!= "\n"})
-    dns_records[:Record] = array1.push(i.split(",")).strip
-    dns_records[:Domain_Name] = array2.push(i.split(",")).strip
-    dns_records[:Ip_Address] = array3.push(i.split(",")).strip
+    dns_records[:Record] = array1.push((i.split(","))[0].strip())
+    dns_records[:Domain_Name] = array2.push((i.split(","))[1].strip())
+    dns_records[:Ip_Address] = array3.push((i.split(","))[2].strip())
   end
   return dns_records
 end
