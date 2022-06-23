@@ -1,6 +1,4 @@
 require "date"
-# require is similar to the package
-
 class Todo
   attr_accessor :text,:due_date,:completed #produces getters and setters
   def initialize(text,due_date,completed)
@@ -8,7 +6,6 @@ class Todo
       @due_date = due_date
       @completed = completed
   end
-  
   #checking whether the @due_date is greater or smaller
   def overdue?
     date = Date.today

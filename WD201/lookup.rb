@@ -24,7 +24,7 @@ def parse_dns(dns_raw)
     dns_records[:Domain_Name] = array2.push((i.split(","))[1].strip())
     dns_records[:Ip_Address] = array3.push((i.split(","))[2].strip())
   end
-  return dns_records
+  return dns_records  
 end
 
 
@@ -34,10 +34,9 @@ def resolve(dns_records, lookup_chain, domain)
     if(dns_records[:Record])[index] == "A"
       lookup_chain.push((dns_records[:Ip_Address])[index])
     elsif(dns_records[:Record])[index] == "CNAME"
-
-      new_domain = dns_records[:Ip_Address][index]
-      lookup_chain.push(new_domain)
-      resolve(dns_records,lookup_chain,new_domain)
+      # new_domain = dns_records[:Ip_Address][index]
+      lookup_chain.push(dns_records[:Ip_Address][index])
+      resolve(dns_records,lookup_chain,dns_records[:Ip_Address][index])
     end
   else
     lookup_chain.push("The Given domain is not Registered")
@@ -54,62 +53,3 @@ puts lookup_chain.join(" => ")
 
 
 
-## Another method 
-
-# def get_command_line_argument
-
-#   if ARGV.empty?
-#       puts "Usage: ruby lookup.rb <domain>"
-#       exit
-#   end
-#   ARGV.first
-# end
-
-
-# domain = get_command_line_argument
-
-
-
-# dns_raw = File.readlines("zone")
-
-# def parse_dns(params)
-
-#   for i in 0...params.length do
-#     # puts "This is Paramas #{params}" 
-#       if params[i].include? "#"
-#           array = params.drop(i+1)
-#       end
-#   end
-#   hash = {}
-#   arr = []
-#   for j in 0...array.length do
-#       arr[j] = array[j].split(",")
-#   end
-#   for j in 0...arr.length do
-#       hash[arr[j][1].strip] = arr[j][2].strip
-#   end
-#   hash.compact
-#   p hash
-# end
-
-
-# def resolve(records,lookup_chain,domain_name)
-#   if (domain_name == "google.com" || domain_name == "ruby-lang.org")
-#       lookup_chain.push(records[domain_name])
-#       lookup_chain
-#   else
-#       key = lookup_chain.last
-#       if records.has_key?(key)
-#           lookup_chain.push(records[key])
-#           resolve(records,lookup_chain,domain_name)
-#           lookup_chain
-#       end
-#   end
-# end
-
-
-
-# dns_records = parse_dns(dns_raw)
-# lookup_chain = [domain]
-# lookup_chain = resolve(dns_records, lookup_chain, domain)
-# puts lookup_chain.join(" => ")
